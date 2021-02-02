@@ -1,0 +1,9 @@
+.example-card {
+  max-width: 500px;
+  margin: auto;
+}
+
+.example-header-image {
+  background-image: url("../../assets/placeholder.png");
+  background-size: cover;
+}
