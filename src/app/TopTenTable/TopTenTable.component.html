@@ -1,24 +1,12 @@
 <h2>Current Top 10</h2>
-<ul class="beers">
-  <li
-    *ngFor="let Beer of beers"
-    [class.selected]="Beer === selectedBeer"
-    (click)="onSelect(Beer)"
-  >
-    <span class="badge"
-      >{{ Beer.name }}:
-      <div class="rating">{{ Beer.rating }}/10</div>
-    </span>
-  </li>
-</ul>
+<table class="table" matSort (matSortChange)="sortData($event)">
+  <tr>
+    <th class="tableHeaderName" mat-sort-header="name">Name</th>
+    <th mat-sort-header="rating">Rating</th>
+  </tr>
 
-<div *ngIf="selectedBeer">
-  <h2>{{ selectedBeer.name | uppercase }} Details</h2>
-  <div><span>id: </span>{{ selectedBeer.id }}</div>
-  <div>
-    <label
-      >name:
-      <input [(ngModel)]="selectedBeer.name" placeholder="name" />
-    </label>
-  </div>
-</div>
+  <tr *ngFor="let beer of sortedData">
+    <td class="tableItemName">{{ beer.name }}</td>
+    <td>{{ beer.rating }}/10</td>
+  </tr>
+</table>
