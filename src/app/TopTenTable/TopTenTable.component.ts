@@ -14,7 +14,7 @@ export class TopTenTable {
   sortedData = this.beers;
 
   constructor() {
-    this.sortedData = this.beers.slice();
+    this.sortedData = this.beers.slice(0, 10);
   }
 
   sortData(sort: Sort) {

@@ -7,9 +7,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { TopTenTable } from './TopTenTable/TopTenTable.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { ReviewPageComponent } from './review-page/review-page.component';
+import { MerchPageComponent } from './merch-page/merch-page.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent, TopTenTable],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, TopTenTable, HomepageComponent, ReviewPageComponent, MerchPageComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
