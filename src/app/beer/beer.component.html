@@ -1,0 +1,24 @@
+<h2>Current Top 10</h2>
+<ul class="beers">
+  <li
+    *ngFor="let Beer of beers"
+    [class.selected]="Beer === selectedBeer"
+    (click)="onSelect(Beer)"
+  >
+    <span class="badge"
+      >{{ Beer.name }}:
+      <div class="rating">{{ Beer.rating }}/10</div>
+    </span>
+  </li>
+</ul>
+
+<div *ngIf="selectedBeer">
+  <h2>{{ selectedBeer.name | uppercase }} Details</h2>
+  <div><span>id: </span>{{ selectedBeer.id }}</div>
+  <div>
+    <label
+      >name:
+      <input [(ngModel)]="selectedBeer.name" placeholder="name" />
+    </label>
+  </div>
+</div>
