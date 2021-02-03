@@ -13,6 +13,23 @@ import { ReviewPageComponent } from './review-page/review-page.component';
 import { MerchPageComponent } from './merch-page/merch-page.component';
 import { ReviewCardComponent } from './review-card/review-card.component';
 
+// Firebase config imports
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
+// Database config object
+const config = {
+  apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
+  authDomain: 'beerreviewguy-ae697.firebaseapp.com',
+  projectId: 'beerreviewguy-ae697',
+  storageBucket: 'beerreviewguy-ae697.appspot.com',
+  messagingSenderId: '329926077564',
+  appId: '1:329926077564:web:4993aa6c6a178d4363adf9',
+  measurementId: 'G-BKNR9GP7TC',
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +41,16 @@ import { ReviewCardComponent } from './review-card/review-card.component';
     MerchPageComponent,
     ReviewCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, MatCardModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    MatCardModule,
+    AngularFireModule.initializeApp(config),
+    AngularFirestoreModule, // firestore
+    AngularFireAuthModule, // auth
+    AngularFireStorageModule, // storage
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
