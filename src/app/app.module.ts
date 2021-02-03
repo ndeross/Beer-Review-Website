@@ -19,6 +19,8 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import { MatIconModule } from '@angular/material/icon';
+
 // Database config object
 const config = {
   apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
@@ -50,6 +52,7 @@ const config = {
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
