@@ -1,5 +1,4 @@
-import { Beer } from '../beer';
-import { BEERS } from '../mockbeers';
+import { REVIEWS } from './../mockreviews';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -10,7 +9,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./TopTenTable.component.css'],
 })
 export class TopTenTable {
-  beers = BEERS;
+  beers = REVIEWS;
   sortedData = this.beers;
 
   constructor() {

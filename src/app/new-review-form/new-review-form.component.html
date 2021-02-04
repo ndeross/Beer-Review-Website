@@ -1,0 +1,28 @@
+<mat-form-field class="pad">
+  <mat-label>Input</mat-label>
+  <input placeholder="Beer Name" matInput />
+</mat-form-field>
+
+<mat-form-field class="pad">
+  <mat-label>Input</mat-label>
+  <input placeholder="Rating" matInput />
+</mat-form-field>
+
+<mat-form-field class="pad" appearance="fill">
+  <mat-label>Select</mat-label>
+
+  <mat-select appearance="fill">
+    <mat-option *ngFor="let beer of beerTypes" [value]="beerTypes">
+      {{ beer.type }}
+    </mat-option>
+  </mat-select>
+
+  <div *ngFor="let beer of beerTypes">
+    {{ beer.type }}
+  </div>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Textarea</mat-label>
+  <textarea matInput> Review </textarea>
+</mat-form-field>
