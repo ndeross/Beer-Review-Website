@@ -21,6 +21,9 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { NewReviewFormComponent } from './new-review-form/new-review-form.component';
+import { MatSelectModule } from '@angular/material/select';
 // Database config object
 const config = {
   apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
@@ -42,6 +45,7 @@ const config = {
     ReviewPageComponent,
     MerchPageComponent,
     ReviewCardComponent,
+    NewReviewFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,8 @@ const config = {
     AngularFireAuthModule, // auth
     AngularFireStorageModule, // storage
     MatIconModule,
+    MatFormFieldModule,
+    MatSelectModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,7 +2,6 @@ import { Review } from './review';
 
 export const REVIEWS: Review[] = [
   {
-    title: 'Coors Banquet',
     imgTag: 'assets/placeholder.png',
     beerName: 'Coors Banquet',
     content:
@@ -12,7 +11,6 @@ export const REVIEWS: Review[] = [
   },
 
   {
-    title: 'Dogfish Sour Lime',
     imgTag: 'assets/placeholder.png',
     beerName: 'Dogfish Sour Lime',
     content:
@@ -22,9 +20,8 @@ export const REVIEWS: Review[] = [
   },
 
   {
-    title: 'Dr. Dirts Beer Made out of Dirt',
     imgTag: 'assets/placeholder.png',
-    beerName: 'Dr. Dirsts Beer Made out of Dirt',
+    beerName: 'Dr. Dirts Beer Made out of Dirt',
     content:
       "This beer is made of dirt, it isn't very good, why did they make this",
     rating: 1,
