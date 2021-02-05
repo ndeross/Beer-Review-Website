@@ -1,0 +1,14 @@
+<div class = "banners column" *ngFor="let merch of merch">
+  <div class="bg-dark text-center">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="cardTitle">{{ merch.merchName }}</mat-card-title>
+        <mat-card-subtitle>{{ merch.price }}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+    <mat-card-content>
+      <img src = '{{ merch.imgTag }}' />
+      <p>{{ merch.content }}</p>
+    </mat-card-content>
+  </div>
+</div>
