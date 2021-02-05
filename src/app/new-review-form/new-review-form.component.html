@@ -11,15 +11,13 @@
 <mat-form-field class="pad" appearance="fill">
   <mat-label>Select</mat-label>
 
-  <mat-select appearance="fill">
-    <mat-option *ngFor="let beer of beerTypes" [value]="beerTypes">
-      {{ beer.type }}
-    </mat-option>
-  </mat-select>
+  <p>Beer Type:</p>
 
-  <div *ngFor="let beer of beerTypes">
-    {{ beer.type }}
-  </div>
+  <select>
+    <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
+      {{ beer.type }}
+    </option>
+  </select>
 </mat-form-field>
 
 <mat-form-field appearance="fill">
