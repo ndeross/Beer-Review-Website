@@ -27,7 +27,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Database config object
-const config = {
+export const config = {
   apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
   authDomain: 'beerreviewguy-ae697.firebaseapp.com',
   projectId: 'beerreviewguy-ae697',

@@ -1,6 +1,7 @@
 import { BEERTYPES } from './../BeerTypes';
 import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-new-review-form',
@@ -25,11 +26,25 @@ export class NewReviewFormComponent implements OnInit {
     date: this.date.toLocaleDateString('en-US'),
   });
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private firestore: AngularFirestore
+  ) {}
 
   ngOnInit(): void {}
 
   onSubmit() {
     console.log(JSON.parse(JSON.stringify(this.reviewForm.value)));
+
+    this.firestore
+      .collection('Reviews')
+      .add(this.reviewForm.value)
+      .then((res) => {
+        console.log(res);
+        this.reviewForm.reset();
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 }
