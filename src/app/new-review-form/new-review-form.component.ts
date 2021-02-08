@@ -20,21 +20,26 @@ export class NewReviewFormComponent implements OnInit {
 
   reviewForm = this.formBuilder.group({
     beerName: '',
-    rating: [0, [Validators.min(0.0), Validators.max(10.0)]],
+    rating: [0, [Validators.min(0.0), Validators.max(10.0)]], // todo: stop submission if invalid
     beerType: '',
     content: '',
-    date: this.date.toLocaleDateString('en-US'),
+    date: '',
   });
 
   constructor(
+    //Initialize the form and firestore objects
     private formBuilder: FormBuilder,
     private firestore: AngularFirestore
   ) {}
 
   ngOnInit(): void {}
 
+  // This function handles adding a review to the firebase
   onSubmit() {
     console.log(JSON.parse(JSON.stringify(this.reviewForm.value)));
+
+    // Stringify the current date and set it to the object
+    this.reviewForm.value.date = this.date.toLocaleDateString('en-US');
 
     this.firestore
       .collection('Reviews')

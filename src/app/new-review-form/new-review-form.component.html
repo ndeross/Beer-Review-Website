@@ -44,7 +44,12 @@
  Review </textarea
         >
       </mat-form-field>
-      <button type="submit" mat-raised-button class="addButton">
+      <button
+        *ngIf="!f.rating.errors"
+        type="submit"
+        mat-raised-button
+        class="addButton"
+      >
         Add Review
       </button>
     </form>
