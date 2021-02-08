@@ -11,7 +11,7 @@ export class ReviewPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  showVar: boolean = true;
+  showVar: boolean = false;
 
   toggleChild() {
     this.showVar = !this.showVar;
