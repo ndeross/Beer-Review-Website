@@ -1,7 +1,7 @@
 <app-header> </app-header>
 <app-review-card> </app-review-card>
 <button
-  (click)="onClick()"
+  (click)="toggleChild()"
   class="addButton"
   mat-mini-fab
   color="blue"
@@ -9,4 +9,7 @@
 >
   <mat-icon>note_add</mat-icon>
 </button>
+<div>
+  <app-new-review-form [showMePartially]="showVar"> </app-new-review-form>
+</div>
 <app-footer> </app-footer>

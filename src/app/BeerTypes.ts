@@ -8,7 +8,7 @@ export const BEERTYPES: BeerType[] = [
   { type: 'Porter' },
   { type: 'Stout' },
   { type: 'Blonde Ale' },
-  { type: 'Brown Ales' },
+  { type: 'Brown Ale' },
   { type: 'IPA' },
   { type: 'Wheat' },
   { type: 'Pilsner' },

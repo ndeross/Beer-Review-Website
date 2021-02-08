@@ -1,5 +1,5 @@
 import { BEERTYPES } from './../BeerTypes';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-new-review-form',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-review-form.component.css'],
 })
 export class NewReviewFormComponent implements OnInit {
+  @Input() showMePartially: boolean;
+
   beerTypes = BEERTYPES;
 
   constructor() {}

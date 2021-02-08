@@ -1,26 +1,31 @@
-<mat-form-field class="pad">
-  <mat-label>Input</mat-label>
-  <input placeholder="Beer Name" matInput />
-</mat-form-field>
+<div class="container">
+  <div *ngIf="showMePartially">
+    <mat-form-field class="pad">
+      <mat-label>Input</mat-label>
+      <input placeholder="Beer Name" matInput />
+    </mat-form-field>
 
-<mat-form-field class="pad">
-  <mat-label>Input</mat-label>
-  <input placeholder="Rating" matInput />
-</mat-form-field>
+    <mat-form-field class="pad">
+      <mat-label>Input</mat-label>
+      <input placeholder="Rating" matInput />
+    </mat-form-field>
 
-<mat-form-field class="pad" appearance="fill">
-  <mat-label>Select</mat-label>
+    <mat-form-field class="pad" appearance="fill">
+      <mat-label>Select</mat-label>
 
-  <p>Beer Type:</p>
+      <p class="header">Beer Type:</p>
 
-  <select>
-    <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
-      {{ beer.type }}
-    </option>
-  </select>
-</mat-form-field>
+      <select>
+        <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
+          {{ beer.type }}
+        </option>
+      </select>
+    </mat-form-field>
 
-<mat-form-field appearance="fill">
-  <mat-label>Textarea</mat-label>
-  <textarea matInput> Review </textarea>
-</mat-form-field>
+    <mat-form-field class="pad" appearance="fill">
+      <mat-label>Textarea</mat-label>
+      <textarea matInput> Review </textarea>
+    </mat-form-field>
+    <button mat-raised-button class="addButton">Add Review</button>
+  </div>
+</div>

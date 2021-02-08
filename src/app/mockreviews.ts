@@ -1,3 +1,4 @@
+import { BeerType, BEERTYPES } from './BeerTypes';
 import { Review } from './review';
 
 export const REVIEWS: Review[] = [
