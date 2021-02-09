@@ -1,3 +1,4 @@
+import { NewReviewFormComponent } from './../new-review-form/new-review-form.component';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,5 +11,9 @@ export class ReviewPageComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onClick() {}
+  showVar: boolean = false;
+
+  toggleChild() {
+    this.showVar = !this.showVar;
+  }
 }

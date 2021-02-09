@@ -1,28 +1,57 @@
-<mat-form-field class="pad">
-  <mat-label>Input</mat-label>
-  <input placeholder="Beer Name" matInput />
-</mat-form-field>
+<div class="container">
+  <div *ngIf="showMePartially">
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+      <mat-form-field class="pad">
+        <mat-label>Input</mat-label>
+        <input
+          id="beerName"
+          type="text"
+          placeholder="Beer Name"
+          formControlName="beerName"
+          matInput
+        />
+      </mat-form-field>
 
-<mat-form-field class="pad">
-  <mat-label>Input</mat-label>
-  <input placeholder="Rating" matInput />
-</mat-form-field>
+      <mat-form-field class="pad">
+        <mat-label>Input</mat-label>
+        <input
+          formControlName="rating"
+          for="rating"
+          placeholder="Rating"
+          type="number"
+          matInput
+        />
+        <div *ngIf="f.rating.errors">
+          Rating must be a number from 0.0 to 10.0
+        </div>
+      </mat-form-field>
 
-<mat-form-field class="pad" appearance="fill">
-  <mat-label>Select</mat-label>
+      <mat-form-field class="pad" appearance="fill">
+        <mat-label>Select</mat-label>
 
-  <mat-select appearance="fill">
-    <mat-option *ngFor="let beer of beerTypes" [value]="beerTypes">
-      {{ beer.type }}
-    </mat-option>
-  </mat-select>
+        <p class="header">Beer Type:</p>
 
-  <div *ngFor="let beer of beerTypes">
-    {{ beer.type }}
+        <select formControlName="beerType" for="beerType">
+          <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
+            {{ beer.type }}
+          </option>
+        </select>
+      </mat-form-field>
+
+      <mat-form-field class="pad" appearance="fill">
+        <mat-label>Textarea</mat-label>
+        <textarea matInput id="content" type="text" formControlName="content">
+ Review </textarea
+        >
+      </mat-form-field>
+      <button
+        *ngIf="!f.rating.errors"
+        type="submit"
+        mat-raised-button
+        class="addButton"
+      >
+        Add Review
+      </button>
+    </form>
   </div>
-</mat-form-field>
-
-<mat-form-field appearance="fill">
-  <mat-label>Textarea</mat-label>
-  <textarea matInput> Review </textarea>
-</mat-form-field>
+</div>
