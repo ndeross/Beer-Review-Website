@@ -1,4 +1,6 @@
 import { REVIEWS } from './../mockreviews';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AfterViewInit } from '@angular/core';
 import {
   Component,
   OnInit,
@@ -17,9 +19,33 @@ import {
 })
 export class ReviewCardComponent {
   private renderer: Renderer2;
-  reviews = REVIEWS;
 
-  constructor() {}
+  REVIEWS;
+
+  constructor(private firestore: AngularFirestore) {}
+
+  ngAfterViewInit() {
+    this.getReviews().then((reviews) => {
+      console.log(reviews);
+      this.REVIEWS = reviews;
+    });
+  }
 
   ngOnInit(): void {}
+
+  async getReviews() {
+    const Reviews = [];
+    await this.firestore
+      .collection('Reviews')
+      .get()
+      .subscribe((querySnapshot) => {
+        querySnapshot.docs.forEach((doc) => {
+          Reviews.push(doc.data());
+        });
+      });
+
+    console.log(Reviews);
+
+    return Reviews;
+  }
 }

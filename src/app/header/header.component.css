@@ -3,12 +3,13 @@ h1 {
   color: #eb4934;
   flex: auto;
   text-align: center;
+  padding-top: 20px;
 }
 
 h2 {
   text-align: center;
   font-family: "Courier New", Courier, monospace;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
 }
 
 #tableItemName {

@@ -20,7 +20,9 @@ export class NewReviewFormComponent implements OnInit {
 
   reviewForm = this.formBuilder.group({
     beerName: '',
-    rating: [0, [Validators.min(0.0), Validators.max(10.0)]], // todo: stop submission if invalid
+    companyName: '',
+    ABV: null,
+    rating: [null, [Validators.min(0.0), Validators.max(10.0)]], // todo: stop submission if invalid
     beerType: '',
     content: '',
     date: '',
