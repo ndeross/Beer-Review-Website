@@ -2,40 +2,41 @@ import { REVIEWS } from './../mockreviews';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { AngularFirestore } from '@angular/fire/firestore';
 @Component({
   selector: 'app-TopTenTable',
   templateUrl: './TopTenTable.component.html',
   styleUrls: ['./TopTenTable.component.css'],
 })
 export class TopTenTable {
-  beers = REVIEWS;
-  sortedData = this.beers;
+  REVIEWS;
 
-  constructor() {
-    this.sortedData = this.beers.slice(0, 10);
-  }
+  constructor(private firestore: AngularFirestore) {}
 
-  sortData(sort: Sort) {
-    const data = this.beers.slice();
-    if (!sort.active || sort.direction === '') {
-      this.sortedData = data;
-      return;
-    }
-
-    this.sortedData = data.sort((a, b) => {
-      const isAsc = sort.direction === 'desc';
-      switch (sort.active) {
-        case 'rating':
-          return compare(a.rating, b.rating, isAsc);
-
-        default:
-          return 0;
-      }
+  ngAfterViewInit() {
+    this.getReviews().then((reviews) => {
+      console.log(reviews);
+      this.REVIEWS = reviews;
     });
   }
-}
 
-function compare(a: number | string, b: number | string, isAsc: boolean) {
-  return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+  ngOnInit(): void {}
+
+  async getReviews() {
+    const Reviews = [];
+    await this.firestore
+      .collection<'Reviews'>('Reviews', (ref) =>
+        ref.orderBy('rating', 'desc').limit(10)
+      )
+      .get()
+      .subscribe((querySnapshot) => {
+        querySnapshot.docs.forEach((doc) => {
+          Reviews.push(doc.data());
+        });
+      });
+
+    console.log(Reviews);
+
+    return Reviews;
+  }
 }
