@@ -12,6 +12,7 @@ export class NewReviewFormComponent implements OnInit {
   @Input() showMePartially: boolean;
 
   beerTypes = BEERTYPES;
+
   date = new Date();
 
   get f() {
@@ -25,7 +26,7 @@ export class NewReviewFormComponent implements OnInit {
     rating: [null, [Validators.min(0.0), Validators.max(10.0)]], // todo: stop submission if invalid
     beerType: '',
     content: '',
-    date: '',
+    date: Date,
   });
 
   constructor(
@@ -38,10 +39,8 @@ export class NewReviewFormComponent implements OnInit {
 
   // This function handles adding a review to the firebase
   onSubmit() {
-    console.log(JSON.parse(JSON.stringify(this.reviewForm.value)));
-
     // Stringify the current date and set it to the object
-    this.reviewForm.value.date = this.date.toLocaleDateString('en-US');
+    this.reviewForm.value.date = this.date; //.toLocaleDateString('en-US');
 
     this.firestore
       .collection('Reviews')

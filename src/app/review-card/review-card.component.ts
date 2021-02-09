@@ -36,15 +36,13 @@ export class ReviewCardComponent {
   async getReviews() {
     const Reviews = [];
     await this.firestore
-      .collection('Reviews')
+      .collection<'Reviews'>('Reviews', (ref) => ref.orderBy('date', 'desc'))
       .get()
       .subscribe((querySnapshot) => {
         querySnapshot.docs.forEach((doc) => {
           Reviews.push(doc.data());
         });
       });
-
-    console.log(Reviews);
 
     return Reviews;
   }

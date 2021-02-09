@@ -22,8 +22,12 @@ export class TopTenTable {
 
   ngOnInit(): void {}
 
+  // async functions are cool but also suck a little bit
   async getReviews() {
     const Reviews = [];
+
+    // this is all one line of code lmao
+
     await this.firestore
       .collection<'Reviews'>('Reviews', (ref) =>
         ref.orderBy('rating', 'desc').limit(10)
@@ -34,8 +38,6 @@ export class TopTenTable {
           Reviews.push(doc.data());
         });
       });
-
-    console.log(Reviews);
 
     return Reviews;
   }
