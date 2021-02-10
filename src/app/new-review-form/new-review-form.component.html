@@ -60,13 +60,17 @@
 
       <mat-form-field class="pad" appearance="fill">
         <mat-label>Textarea</mat-label>
-        <textarea matInput id="content" type="text" formControlName="content">
- Review </textarea
-        >
+        <textarea
+          matInput
+          id="content"
+          type="text"
+          formControlName="content"
+          placeholder="What did you think?"
+        ></textarea>
       </mat-form-field>
       <div class="buttonPadding">
         <button
-          *ngIf="!f.rating.errors"
+          [disabled]="!CheckForm()"
           type="submit"
           mat-raised-button
           class="addButton"

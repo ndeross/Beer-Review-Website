@@ -1,4 +1,13 @@
 <h2>Current Top 10</h2>
+<div class="selectContainer">
+  <h6>Sort By:</h6>
+  <p class="textCenter">Beer Type</p>
+  <select class="selectBoxBeerType" for="beerType">
+    <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
+      {{ beer.type }}
+    </option>
+  </select>
+</div>
 <table class="myTable">
   <tr>
     <th class="tableHeaderName" mat-sort-header="name">Name</th>

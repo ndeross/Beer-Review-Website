@@ -1,6 +1,6 @@
 import { BEERTYPES } from './../BeerTypes';
 import { Component, OnInit, Input } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -19,13 +19,24 @@ export class NewReviewFormComponent implements OnInit {
     return this.reviewForm.controls;
   }
 
+  CheckForm() {
+    if (this.reviewForm.valid) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   reviewForm = this.formBuilder.group({
-    beerName: '',
-    companyName: '',
-    ABV: null,
-    rating: [null, [Validators.min(0.0), Validators.max(10.0)]], // todo: stop submission if invalid
-    beerType: '',
-    content: '',
+    beerName: ['', Validators.required],
+    companyName: ['', Validators.required],
+    ABV: [
+      null,
+      [Validators.min(0.0), Validators.max(100), Validators.required],
+    ],
+    rating: [null, [Validators.min(0.0), Validators.max(10.0)]],
+    beerType: ['', Validators.required],
+    content: ['', Validators.required],
     date: Date,
   });
 

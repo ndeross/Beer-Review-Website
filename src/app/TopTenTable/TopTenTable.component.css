@@ -17,3 +17,20 @@ h2 {
 .tableItemName {
   padding-right: 40px;
 }
+
+h6 {
+  text-align: center;
+}
+.selectBoxBeerType {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+.selectContainer {
+  padding-bottom: 25px;
+}
+
+.textCenter {
+  text-align: center;
+}

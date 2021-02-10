@@ -1,8 +1,11 @@
+import { BEERTYPES_incAll } from './../BeerTypes_incALL';
+
 import { REVIEWS } from './../mockreviews';
 import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { AngularFirestore } from '@angular/fire/firestore';
+
 @Component({
   selector: 'app-TopTenTable',
   templateUrl: './TopTenTable.component.html',
@@ -10,6 +13,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class TopTenTable {
   REVIEWS;
+  beerTypes = BEERTYPES_incAll;
 
   constructor(private firestore: AngularFirestore) {}
 
