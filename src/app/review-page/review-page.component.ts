@@ -1,5 +1,8 @@
+import { BEERTYPES } from './../BeerTypes';
 import { NewReviewFormComponent } from './../new-review-form/new-review-form.component';
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { BEERTYPES_incAll } from '../BeerTypes_incALL';
 
 @Component({
   selector: 'app-review-page',
@@ -7,11 +10,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./review-page.component.css'],
 })
 export class ReviewPageComponent implements OnInit {
-  constructor() {}
+  beerTypes = BEERTYPES_incAll;
+  constructor(private formBuilder: FormBuilder) {}
 
   ngOnInit(): void {}
 
   showVar: boolean = false;
+
+  get f() {
+    return this.reviewForm.controls;
+  }
+
+  reviewForm = this.formBuilder.group({
+    beerType: '',
+  });
 
   toggleChild() {
     this.showVar = !this.showVar;

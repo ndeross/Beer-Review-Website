@@ -1,15 +1,30 @@
 <app-header> </app-header>
-<app-review-card> </app-review-card>
-<button
-  (click)="toggleChild()"
-  class="addButton"
-  mat-mini-fab
-  color="blue"
-  aria-label="Example icon button with a plus one icon"
->
-  <mat-icon>note_add</mat-icon>
-</button>
+
+<h6>Sort By:</h6>
+<p class="textCenter">Beer Type</p>
+<select class="selectBoxBeerType" for="beerType">
+  <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
+    {{ beer.type }}
+  </option>
+</select>
+
 <div>
-  <app-new-review-form [showMePartially]="showVar"> </app-new-review-form>
+  <button
+    (click)="toggleChild()"
+    class="addButton"
+    mat-mini-fab
+    color="blue"
+    aria-label="Example icon button with a plus one icon"
+  >
+    <mat-icon>note_add</mat-icon>
+  </button>
+
+  <!-- Condition Rendered -->
+  <div>
+    <app-new-review-form [showMePartially]="showVar"> </app-new-review-form>
+  </div>
+
+  <app-review-card> </app-review-card>
+
+  <app-footer> </app-footer>
 </div>
-<app-footer> </app-footer>

@@ -1,11 +1,6 @@
-import { REVIEWS } from './../mockreviews';
-import {
-  Component,
-  OnInit,
-  Injectable,
-  Renderer2,
-  RendererFactory2,
-} from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+
+import { Component, Injectable, Renderer2 } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
@@ -17,9 +12,32 @@ import {
 })
 export class ReviewCardComponent {
   private renderer: Renderer2;
-  reviews = REVIEWS;
 
-  constructor() {}
+  REVIEWS; 
+
+  constructor(private firestore: AngularFirestore) {}
+
+  ngAfterViewInit() {
+    this.getReviews().then((reviews) => {
+      this.REVIEWS = reviews;
+    });
+  }
 
   ngOnInit(): void {}
+
+  async getReviews() {
+
+    // Ben - good example of a query here
+    const Reviews = [];
+    await this.firestore
+      .collection<'Reviews'>('Reviews', (ref) => ref.orderBy('date', 'desc'))
+      .get()
+      .subscribe((querySnapshot) => {
+        querySnapshot.docs.forEach((doc) => {
+          Reviews.push(doc.data());
+        });
+      });
+
+    return Reviews;
+  }
 }

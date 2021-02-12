@@ -1,5 +1,4 @@
 .example-card {
-  max-width: 600px;
   margin: auto;
 }
 
@@ -10,4 +9,17 @@
 
 .cardTitle {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.content {
+  padding-top: 10px;
+}
+
+.date {
+  float: right;
+  padding-left: 25px;
 }

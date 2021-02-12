@@ -1,14 +1,19 @@
-<div class="col-md-3 mx-auto my-5" *ngFor="let review of reviews">
-  <mat-card class="example-card">
+<div class="col-md-5 mx-auto my-5" *ngFor="let review of REVIEWS">
+  <mat-card class="example-card"
+    ><mat-card-subtitle class="date">
+      {{ review.date.toDate().toLocaleDateString("en-US") }}
+    </mat-card-subtitle>
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
       <mat-card-title class="cardTitle">{{ review.beerName }}</mat-card-title>
-      <mat-card-subtitle>{{ review.date }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ review.companyName }}</mat-card-subtitle>
     </mat-card-header>
 
     <mat-card-content>
-      <p>{{ review.content }}</p>
+      <p>Type: {{ review.beerType }}</p>
+      <p>ABV: {{ review.ABV }}%</p>
       <p>Rating: {{ review.rating }} / 10</p>
+      <p class="content">{{ review.content }}</p>
     </mat-card-content>
 
     <mat-card-actions>

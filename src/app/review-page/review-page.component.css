@@ -4,3 +4,17 @@
   margin-right: auto;
   margin-top: 20px;
 }
+
+.selectBoxBeerType {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+h6 {
+  text-align: center;
+}
+
+.textCenter {
+  text-align: center;
+}

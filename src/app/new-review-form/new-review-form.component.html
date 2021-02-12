@@ -15,6 +15,28 @@
       <mat-form-field class="pad">
         <mat-label>Input</mat-label>
         <input
+          id="companyName"
+          type="text"
+          placeholder="Company Name"
+          formControlName="companyName"
+          matInput
+        />
+      </mat-form-field>
+
+      <mat-form-field class="pad">
+        <mat-label>Input</mat-label>
+        <input
+          formControlName="ABV"
+          for="ABV"
+          placeholder="ABV %"
+          type="number"
+          matInput
+        />
+      </mat-form-field>
+
+      <mat-form-field class="pad">
+        <mat-label>Input</mat-label>
+        <input
           formControlName="rating"
           for="rating"
           placeholder="Rating"
@@ -28,9 +50,7 @@
 
       <mat-form-field class="pad" appearance="fill">
         <mat-label>Select</mat-label>
-
         <p class="header">Beer Type:</p>
-
         <select formControlName="beerType" for="beerType">
           <option *ngFor="let beer of beerTypes" value="{{ beer.type }}">
             {{ beer.type }}
@@ -40,18 +60,24 @@
 
       <mat-form-field class="pad" appearance="fill">
         <mat-label>Textarea</mat-label>
-        <textarea matInput id="content" type="text" formControlName="content">
- Review </textarea
-        >
+        <textarea
+          matInput
+          id="content"
+          type="text"
+          formControlName="content"
+          placeholder="What did you think?"
+        ></textarea>
       </mat-form-field>
-      <button
-        *ngIf="!f.rating.errors"
-        type="submit"
-        mat-raised-button
-        class="addButton"
-      >
-        Add Review
-      </button>
+      <div class="buttonPadding">
+        <button
+          [disabled]="!CheckForm()"
+          type="submit"
+          mat-raised-button
+          class="addButton"
+        >
+          Add Review
+        </button>
+      </div>
     </form>
   </div>
 </div>
