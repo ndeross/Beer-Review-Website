@@ -1,4 +1,4 @@
-import { MERCH } from './../mockmerch';
+import { PRODUCTS } from './../mockmerch';
 
 import { Component, OnInit, Injectable, Renderer2 } from '@angular/core';
 
@@ -12,7 +12,7 @@ import { Component, OnInit, Injectable, Renderer2 } from '@angular/core';
 })
 export class MerchCardComponent implements OnInit {
   private renderer: Renderer2;
-  merch = MERCH;
+  products = PRODUCTS;
 
   constructor() { }
 

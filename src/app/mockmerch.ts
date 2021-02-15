@@ -1,12 +1,13 @@
-import { Merch } from './merch';
+import { Product } from './merch';
 
-export const MERCH: Merch[] = [
+export const PRODUCTS: Product[] = [
   {
     imgTag: 'assets/shirt.jpg',
     merchName: 'Beer Shirt',
     content:
       'Pair this with your favorite beverage for an unbeatable combo',
     price: 19.99,
+    merchId: 1,
   },
 
   {
@@ -15,6 +16,8 @@ export const MERCH: Merch[] = [
     content:
       'Leave you feeling warm like a perfect stout',
     price: 29.99,
+    merchId: 2,
+
   },
 
   {
@@ -23,6 +26,8 @@ export const MERCH: Merch[] = [
     content:
       'The best drink needs the best coozie',
     price: 5.99,
+    merchId: 3,
+
   },
 ];
 

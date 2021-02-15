@@ -1,0 +1,33 @@
+<p>merch-details works!</p>
+
+<div class='card'
+     *ngIf='product'>
+<!-- <div class='card' *ngFor="let merch of merch"> -->
+
+
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-8'>
+        <div class='row'>
+          <div class='col-md-4'>Name:</div>
+          <div class='col-md-8'>{{product.merchName}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Description:</div>
+          <div class='col-md-8'>{{product.merchName}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Availability:</div>
+          <div class='col-md-8'>{{product.merchName}}</div>
+        </div>
+        <div class='row'>
+          <div class='col-md-4'>Price:</div>
+          <div class='col-md-8'>{{product.price|currency:'USD':'symbol'}}</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+</div>

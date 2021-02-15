@@ -1,14 +1,18 @@
-<div class = "banners column" *ngFor="let merch of merch">
+<div class = "banners column" *ngFor="let product of products">
   <div class="bg-dark text-center">
     <mat-card>
+
+      <a [routerLink]="['/merch-details', product.merchId]">
+        {{ product.merchName }}
+      </a>
       <mat-card-header>
-        <mat-card-title class="cardTitle">{{ merch.merchName }}</mat-card-title>
-        <mat-card-subtitle>{{ merch.price }}</mat-card-subtitle>
+        <mat-card-title class="cardTitle">{{ product.merchName }}</mat-card-title>
+        <mat-card-subtitle>{{ product.price }}</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
     <mat-card-content>
-      <img src = '{{ merch.imgTag }}' />
-      <p>{{ merch.content }}</p>
+      <img src = '{{ product.imgTag }}' />
+      <p>{{ product.content }}</p>
     </mat-card-content>
   </div>
 </div>
