@@ -25,24 +25,14 @@ import { NewReviewFormComponent } from './new-review-form/new-review-form.compon
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// Database config object
-//TODO: Move these into a secrets file
-export const config = {
-  apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
-  authDomain: 'beerreviewguy-ae697.firebaseapp.com',
-  projectId: 'beerreviewguy-ae697',
-  storageBucket: 'beerreviewguy-ae697.appspot.com',
-  messagingSenderId: '329926077564',
-  appId: '1:329926077564:web:4993aa6c6a178d4363adf9',
-  measurementId: 'G-BKNR9GP7TC',
-};
+// Config
+import { config } from '../secrets';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    // TopTenTable,
     HomepageComponent,
     ReviewPageComponent,
     MerchPageComponent,
