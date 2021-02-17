@@ -14,3 +14,5 @@ export const BEERTYPES: BeerType[] = [
   { type: 'Pilsner' },
   { type: 'Sour Ale' },
 ];
+
+//* Find a way to get the two BeerTypes into one file

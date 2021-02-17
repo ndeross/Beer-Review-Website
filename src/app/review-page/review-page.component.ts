@@ -1,7 +1,6 @@
-import { BEERTYPES } from './../BeerTypes';
-import { NewReviewFormComponent } from './../new-review-form/new-review-form.component';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { BeerType } from './../BeerTypes';
+import { Component } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { BEERTYPES_incAll } from '../BeerTypes_incALL';
 
 @Component({
@@ -9,23 +8,23 @@ import { BEERTYPES_incAll } from '../BeerTypes_incALL';
   templateUrl: './review-page.component.html',
   styleUrls: ['./review-page.component.css'],
 })
-export class ReviewPageComponent implements OnInit {
-  beerTypes = BEERTYPES_incAll;
-  constructor(private formBuilder: FormBuilder) {}
+export class ReviewPageComponent {
 
-  ngOnInit(): void {}
+  beerTypes: BeerType[] = BEERTYPES_incAll;
+
+  constructor(private formBuilder: FormBuilder) {}
 
   showVar: boolean = false;
 
-  get f() {
+  get f(): { [key: string]: AbstractControl } {
     return this.reviewForm.controls;
   }
 
-  reviewForm = this.formBuilder.group({
+  reviewForm: FormGroup = this.formBuilder.group({
     beerType: '',
   });
 
-  toggleChild() {
+  toggleChild(): void {
     this.showVar = !this.showVar;
   }
 }

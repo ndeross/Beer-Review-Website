@@ -5,9 +5,8 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { TopTenTable } from './TopTenTable/TopTenTable.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
 import { MerchPageComponent } from './merch-page/merch-page.component';
@@ -26,23 +25,14 @@ import { NewReviewFormComponent } from './new-review-form/new-review-form.compon
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
-// Database config object
-export const config = {
-  apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
-  authDomain: 'beerreviewguy-ae697.firebaseapp.com',
-  projectId: 'beerreviewguy-ae697',
-  storageBucket: 'beerreviewguy-ae697.appspot.com',
-  messagingSenderId: '329926077564',
-  appId: '1:329926077564:web:4993aa6c6a178d4363adf9',
-  measurementId: 'G-BKNR9GP7TC',
-};
+// Config
+import { config } from '../secrets';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TopTenTable,
     HomepageComponent,
     ReviewPageComponent,
     MerchPageComponent,

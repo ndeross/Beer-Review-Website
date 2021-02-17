@@ -1,4 +1,10 @@
+**.swp
+*~
+**.swo
+.*.swp
+.*.swo
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+secrets.ts
 
 # compiled output
 /dist
