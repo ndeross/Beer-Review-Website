@@ -1,47 +1,30 @@
 import { BEERTYPES_incAll } from './../BeerTypes_incALL';
-import { Component } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { Component, OnDestroy } from '@angular/core';
 import { BeerType } from '../BeerTypes';
+import { GetReviewsService } from '../services/get-reviews.service';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.css'],
 })
-export class HomepageComponent {
+export class HomepageComponent implements OnDestroy {
+  // I'll show you guys how this stuff works, need to have an unsubscribe to prevent memory leaks, could by why your Firebase was getting so many queries
+  private isAlive: boolean = true;
 
-  //! add types for this
   REVIEWS;
   beerTypes: BeerType[] = BEERTYPES_incAll;
 
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private service: GetReviewsService) {}
 
   ngAfterViewInit(): void {
-    this.getReviews().then((reviews) => {
+    this.service.getReviews(this.isAlive).then((reviews) => {
       console.log(reviews);
       this.REVIEWS = reviews;
     });
   }
 
-  // async functions are cool but also suck a little bit
-
-  //! need to get rid of the `any` types here
-  async getReviews(): Promise<any[]> {
-    const Reviews: any[] = [];
-
-    // this is all one line of code lmao
-
-    await this.firestore
-      .collection<'Reviews'>('Reviews', (ref) =>
-        ref.orderBy('rating', 'desc').limit(10)
-      )
-      .get()
-      .subscribe((querySnapshot) => {
-        querySnapshot.docs.forEach((doc) => {
-          Reviews.push(doc.data());
-        });
-      });
-
-    return Reviews;
+  ngOnDestroy(): void {
+    this.isAlive = false;
   }
 }
