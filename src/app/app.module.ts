@@ -28,6 +28,8 @@ import { NewReviewFormComponent } from './new-review-form/new-review-form.compon
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MerchDetailsComponent } from './merch-details/merch-details.component';
+import { MerchContainerComponent } from './merch/components/merch-container/merch-container.component';
+import { MerchDetailComponent } from './merch/components/merch-detail/merch-detail.component';
 
 // Database config object
 export const config = {
@@ -53,6 +55,8 @@ export const config = {
     NewReviewFormComponent,
     MerchCardComponent,
     MerchDetailsComponent,
+    MerchContainerComponent,
+    MerchDetailComponent,
   ],
   imports: [
     BrowserModule,

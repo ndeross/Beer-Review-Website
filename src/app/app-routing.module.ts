@@ -8,11 +8,15 @@ const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   { path: 'homepage', component: HomepageComponent },
   { path: 'review-page', component: ReviewPageComponent },
-  { path: 'merch-page', component: MerchPageComponent },
+  // { path: 'merch-page', component: MerchPageComponent }
+  { path: 'merch', loadChildren: () =>
+          import('./merch/merch.module')
+            .then(m => m.MerchModule) }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
