@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
-import { TopTenTable } from './TopTenTable/TopTenTable.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
 import { MerchPageComponent } from './merch-page/merch-page.component';
@@ -27,6 +26,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // Database config object
+//TODO: Move these into a secrets file
 export const config = {
   apiKey: 'AIzaSyDVMrIvjD52NRQyEytcqMzlAGZqPFzB0J4',
   authDomain: 'beerreviewguy-ae697.firebaseapp.com',
@@ -42,7 +42,7 @@ export const config = {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    TopTenTable,
+    // TopTenTable,
     HomepageComponent,
     ReviewPageComponent,
     MerchPageComponent,

@@ -1,2 +1,13 @@
 Working Notes
 
+I am trying to get rid of the homepage component, because all that it has is the top ten reviews component in it.
+There are a lot of links to it, so I've got to change those over.
+No reason to have a component that's fully empty.
+
+So TopTenTable is going to replace homepage.
+What would be easier is actually just put all of the logic that's currently in TopTenComponent and move that into homepage component, that way I don't need to change all of the linking and routes, and also homepage makes more sense there.
+TopTenTable is just descriptive about what is in that page, don't need separate components.
+This is a mistake that I made too on my first run through the application.  
+
+Moved all of the logic, markup, styling from TopTen over to HomePage, deleted TopTen.  
+
