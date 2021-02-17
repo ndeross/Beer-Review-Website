@@ -1,6 +1,6 @@
-import { BEERTYPES } from './../BeerTypes';
-import { Component, OnInit, Input } from '@angular/core';
-import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { BeerType, BEERTYPES } from './../BeerTypes';
+import { Component, Input } from '@angular/core';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
@@ -8,26 +8,30 @@ import { AngularFirestore } from '@angular/fire/firestore';
   templateUrl: './new-review-form.component.html',
   styleUrls: ['./new-review-form.component.css'],
 })
-export class NewReviewFormComponent implements OnInit {
+export class NewReviewFormComponent {
   @Input() showMePartially: boolean;
 
-  beerTypes = BEERTYPES;
+  //! Add tying to every variable that you can
+  // The reason I say that is because Steve and the devs are particular about not having "any" types in angular apps
+  // that's what makes TypeScript a powerful development language
 
-  date = new Date();
+  //? If you hover over a variable, it will actually tell you the type as long as you have some Angular /TS extensions installed
 
-  get f() {
+  beerTypes: BeerType[] = BEERTYPES;
+
+  date: Date = new Date();
+
+  get f(): { [key: string]: AbstractControl } {
     return this.reviewForm.controls;
   }
 
-  CheckForm() {
-    if (this.reviewForm.valid) {
+  CheckForm(): boolean {
+    //* removed else statement, will automatically return false if condition not met
+    if (this.reviewForm.valid)
       return true;
-    } else {
-      return false;
-    }
   }
 
-  reviewForm = this.formBuilder.group({
+  reviewForm: FormGroup = this.formBuilder.group({
     beerName: ['', Validators.required],
     companyName: ['', Validators.required],
     ABV: [
@@ -46,10 +50,8 @@ export class NewReviewFormComponent implements OnInit {
     private firestore: AngularFirestore
   ) {}
 
-  ngOnInit(): void {}
-
   // This function handles adding a review to the firebase
-  onSubmit() {
+  onSubmit(): void {
     // Stringify the current date and set it to the object
     this.reviewForm.value.date = this.date; //.toLocaleDateString('en-US');
 
