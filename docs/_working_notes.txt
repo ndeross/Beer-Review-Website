@@ -11,3 +11,5 @@ This is a mistake that I made too on my first run through the application.
 
 Moved all of the logic, markup, styling from TopTen over to HomePage, deleted TopTen.  
 
+Created service for the get from Firebase. Implemented unsubscribe with takeWhile() Boolean.
+OnDestroy sets `isAlive` boolean from true to false.

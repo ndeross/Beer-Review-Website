@@ -1,7 +1,7 @@
 import { BEERTYPES_incAll } from './../BeerTypes_incALL';
 import { Component, OnDestroy } from '@angular/core';
 import { BeerType } from '../BeerTypes';
-import { GetReviewsService } from '../services/get-reviews.service';
+import { GetReviewsService } from '../shared/services/get-reviews.service';
 
 @Component({
   selector: 'app-homepage',
