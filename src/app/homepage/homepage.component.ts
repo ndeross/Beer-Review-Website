@@ -7,5 +7,3 @@ import { Component } from '@angular/core';
 })
 export class HomepageComponent {
 }
-
-//* Remove any unused code: constructors, OnInit, all of that
