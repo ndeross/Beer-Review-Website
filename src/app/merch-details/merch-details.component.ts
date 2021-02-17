@@ -5,8 +5,9 @@ import { ProductService } from './../product.service';
 
 
 
-import { Component, Injectable, OnInit, Renderer2 } from '@angular/core';
+import { Component, Injectable, OnInit, Renderer2, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 @Injectable({
@@ -17,11 +18,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './merch-details.component.html',
   styleUrls: ['./merch-details.component.css']
 })
-export class MerchDetailsComponent implements OnInit {
+export class MerchDetailsComponent implements OnInit, OnDestroy {
   private renderer: Renderer2;
   // products = PRODUCTS;
   errorMessage = '';
   product: Product | undefined;
+
+  private sub: Subscription;
 
 
   constructor(private route: ActivatedRoute,
@@ -38,7 +41,7 @@ export class MerchDetailsComponent implements OnInit {
   }
 
   getProduct(id: number): void {
-    this.productService.getProduct(id).subscribe({
+    this.sub = this.productService.getProduct(id).subscribe({
       next: product => this.product = product,
       error: err => this.errorMessage = err
     });
@@ -46,5 +49,9 @@ export class MerchDetailsComponent implements OnInit {
 
   onBack(): void {
     this.router.navigate(['/products']);
+  }
+
+  ngOnDestroy(): void {
+    this.sub.unsubscribe;
   }
 }
