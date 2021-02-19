@@ -1,0 +1,47 @@
+[
+  {
+    "productId": 1,
+    "productName": "T-Shirt",
+    "productCode": "GDN-0011",
+    "releaseDate": "March 19, 2019",
+    "description": "Pair this with your favorite beverage for an unbeatable combo",
+    "price": 29.99,
+    "imageUrl": "assets/images/tshirt.jpg"
+  },
+  {
+    "productId": 2,
+    "productName": "Sweatshirt",
+    "productCode": "GDN-0023",
+    "releaseDate": "March 18, 2019",
+    "description": "Leave you feeling warm like a perfect stout",
+    "price": 42.99,
+    "imageUrl": "assets/images/sweatshirt.jpg"
+  },
+  {
+    "productId": 3,
+    "productName": "Coozie",
+    "productCode": "TBX-0048",
+    "releaseDate": "May 21, 2019",
+    "description": "The best drink needs the best coozie",
+    "price": 6.9,
+    "imageUrl": "assets/images/coozie.jpg"
+  },
+  {
+    "productId": 4,
+    "productName": "Stickers",
+    "productCode": "TBX-0022",
+    "releaseDate": "May 15, 2019",
+    "description": "This variety pack pairs well with a variety of beers",
+    "price": 3,
+    "imageUrl": "assets/images/stickers.jpg"
+  },
+  {
+    "productId": 5,
+    "productName": "Six Pack Holder",
+    "productCode": "GMG-0042",
+    "releaseDate": "October 15, 2018",
+    "description": "Carry your six favorite drinks. *Beer Not Included",
+    "price": 22,
+    "imageUrl": "assets/images/sixpack.jpg"
+  }
+]
