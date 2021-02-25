@@ -13,7 +13,6 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
-import { MerchPageComponent } from './merch-page/merch-page.component';
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { ProductModule } from './products/product.module';
 
@@ -41,7 +40,6 @@ import { config } from '../secrets';
     FooterComponent,
     HomepageComponent,
     ReviewPageComponent,
-    MerchPageComponent,
     ReviewCardComponent,
     NewReviewFormComponent,
   ],
@@ -71,31 +69,3 @@ import { config } from '../secrets';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
-
-// import { BrowserModule } from '@angular/platform-browser';
-// import { NgModule } from '@angular/core';
-// import { HttpClientModule } from '@angular/common/http';
-// import { RouterModule } from '@angular/router';
-
-// import { AppComponent } from './app.component';
-// import { WelcomeComponent } from './home/welcome.component';
-// import { ProductModule } from './products/product.module';
-
-// @NgModule({
-//   declarations: [
-//     AppComponent,
-//     WelcomeComponent
-//   ],
-//   imports: [
-//     BrowserModule,
-//     HttpClientModule,
-//     RouterModule.forRoot([
-//       { path: 'welcome', component: WelcomeComponent },
-//       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
-//       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
-//     ]),
-//     ProductModule
-//   ],
-//   bootstrap: [AppComponent]
-// })
-// export class AppModule { }
